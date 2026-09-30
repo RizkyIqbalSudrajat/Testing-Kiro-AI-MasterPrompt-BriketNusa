@@ -171,12 +171,12 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
   };
 
   return (
-    <div className="min-h-screen bg-[#FAFAF7] dark:bg-[#0C0A09] text-stone-900 dark:text-stone-100 flex flex-col md:flex-row bg-noise">
+    <div className="h-screen w-full overflow-hidden bg-[#FAFAF7] dark:bg-[#0C0A09] text-stone-900 dark:text-stone-100 flex flex-col md:flex-row bg-noise">
       {/* ============================================================== */}
-      {/* 1. SIDEBAR (Collapsible on Desktop, Drawer on Mobile)          */}
+      {/* 1. SIDEBAR (Static/Fixed on Desktop, Drawer on Mobile)         */}
       {/* ============================================================== */}
       <aside
-        className={`fixed inset-y-0 left-0 z-40 bg-white/85 dark:bg-stone-950/85 backdrop-blur-xl border-r border-stone-200/80 dark:border-stone-800/80 flex flex-col transition-all duration-300 md:static ${
+        className={`fixed inset-y-0 left-0 z-40 h-full bg-white/85 dark:bg-stone-950/85 backdrop-blur-xl border-r border-stone-200/80 dark:border-stone-800/80 flex flex-col transition-all duration-300 shrink-0 md:relative md:translate-x-0 ${
           mobileDrawerOpen
             ? 'translate-x-0 w-64'
             : '-translate-x-full md:translate-x-0'
@@ -351,7 +351,7 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
       {/* ============================================================== */}
       {/* 2. MAIN CONTENT AREA & TOPBAR                                  */}
       {/* ============================================================== */}
-      <div className="flex-1 flex flex-col min-w-0">
+      <div className="flex-1 flex flex-col min-w-0 h-full overflow-y-auto">
         {/* Topbar: SaaS Ala Linear / Vercel */}
         <header className="sticky top-0 z-30 h-16 bg-white/70 dark:bg-stone-950/70 backdrop-blur-xl border-b border-stone-200/80 dark:border-stone-800/80 px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4 transition-colors">
           {/* Left: Mobile Menu Trigger + Dynamic Greeting */}

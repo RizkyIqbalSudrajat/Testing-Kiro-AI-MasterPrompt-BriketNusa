@@ -2,6 +2,32 @@
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      (function() {
+        try {
+          var origFetch = window.fetch;
+          var curFetch = typeof origFetch === 'function' ? origFetch.bind(window) : origFetch;
+          var descriptor = {
+            get: function() {
+              return curFetch;
+            },
+            set: function(v) {
+              curFetch = v;
+            },
+            configurable: true,
+            enumerable: true
+          };
+          try {
+            Object.defineProperty(window, 'fetch', descriptor);
+          } catch (e) {}
+          if (typeof Window !== 'undefined' && Window.prototype) {
+            try {
+              Object.defineProperty(Window.prototype, 'fetch', descriptor);
+            } catch (e) {}
+          }
+        } catch (e) {}
+      })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23F97316'%3E%3Cpath d='M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z'/%3E%3Cpath d='M16 16c1.5-1.5 2-4 2-6-1.5 0-4 .5-5.5 2 1 1 2 2.5 3.5 4z' fill='%2310B981'/%3E%3C/svg%3E" />
     <title>BriketNusa - Hilirisasi Briket Kelapa</title>
