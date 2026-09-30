@@ -1,0 +1,6 @@
+{
+  "name": "BriketNusa - Hilirisasi Briket Kelapa",
+  "description": "Platform hilirisasi briket kelapa Indonesia yang menghubungkan supplier bahan baku lokal, proses produksi terstandar, dan pembeli pasar domestik & ekspor.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
